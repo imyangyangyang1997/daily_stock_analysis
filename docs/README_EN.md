@@ -15,7 +15,7 @@ Analyze your watchlist daily → generate a decision dashboard → push to multi
 
 **Zero-cost deployment** · Runs on GitHub Actions · No server required
 
-[**Quick Start**](#-quick-start) · [**Key Features**](#-key-features) · [**Sample Output**](#-sample-output) · [**Full Guide**](full-guide_EN.md) · [**FAQ**](FAQ_EN.md) · [**Changelog**](CHANGELOG.md)
+[**Quick Start**](#-quick-start) · [**Key Features**](#-key-features) · [**Sample Output**](#-sample-output) · [**Full Guide**](full-guide_EN.md) · [**FAQ**](FAQ_EN.md) · [**Contributing**](CONTRIBUTING_EN.md) · [**All Docs**](INDEX_EN.md)
 
 English | [简体中文](../README.md) | [繁體中文](README_CHT.md)
 
@@ -429,6 +429,8 @@ Enable the FastAPI service for configuration management and triggering analysis 
 | `/api/v1/agent/strategies` | GET | Get available built-in/custom strategies |
 | `/api/v1/agent/chat/stream` | POST (SSE) | Stream multi-turn Agent strategy chat |
 | `/api/health` | GET | Health check |
+
+> Note: `POST /api/v1/analysis/analyze` supports only one stock when `async_mode=false`; batch `stock_codes` requires `async_mode=true`. The async `202` response returns a single `task_id` for one stock, or an `accepted` / `duplicates` summary for batch requests.
 
 > For detailed instructions, see [Full Guide - API Service](full-guide_EN.md#fastapi-api-service)
 
